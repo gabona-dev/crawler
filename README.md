@@ -42,3 +42,4 @@ Before you begin, ensure you have the following requirements installed:
    ```bash
    http://127.0.0.1:5000
    ```
+![alt text]([http://url/to/img.png](https://github.com/gabona-dev/crawler/blob/main/img/homepage.png)https://github.com/gabona-dev/crawler/blob/main/img/homepage.png)
