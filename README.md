@@ -43,4 +43,4 @@ Before you begin, ensure you have the following requirements installed:
    http://127.0.0.1:5000
    ```
 
-![My Image]([images/my-image.jpg](https://github.com/gabona-dev/crawler/blob/main/img/homepage.png?raw=true)https://github.com/gabona-dev/crawler/blob/main/img/homepage.png?raw=true)
+![Image description]([https://github.com/LarrySul/Parallax-Landing-Page/blob/master/src/img/Screenshot%20(285).pn](https://github.com/gabona-dev/crawler/blob/main/img/homepage.png)https://github.com/gabona-dev/crawler/blob/main/img/homepage.png)
