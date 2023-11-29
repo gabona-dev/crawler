@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Risultati della Ricerca</title>
+    <link rel="stylesheet" type="text/css" href= "{{url_for('static',filename='styles/table.css') }}">
+</head>
+<body>
+    <h1>Risultati della Ricerca</h1>
+
+    <p>Testo di ricerca: {{ search_query }}</p>
+    <p>Filtro applicato: {{ filter_value }}</p>
+
+    <table>
+        <thead>
+            <tr>
+                {% for key in risultati[0].keys() %}
+                    <th>{{ key }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in risultati %}
+                <tr>
+                    {% for key, value in record.items() %}
+                            <td>{{ value if value != '' else '-' }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+    
+    
+</body>
+</html>

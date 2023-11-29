@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Identikit</title>
+    <style>
+       html {
+          font-family: 'Poppins', sans-serif;
+          background: url("static/styles/Searchs_006.png");
+          background-size: cover;
+          background-position: center center;
+      }
+
+      body {
+          /* display: flex; */
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 400px;
+      }
+
+      .content-container {
+          text-align: center;
+          margin: 0 5px;
+      }
+
+      table {
+          width: 100%;
+          border-collapse: collapse;
+          border-spacing: 0;
+          border: 2px solid #ff69b4;
+      }
+
+      th {
+          background-color: #ff69b4;
+          color: white;
+          font-weight: bold;
+          padding: 10px;
+      }
+
+
+      td {
+          border: 1px solid #ff69b4;
+          padding: 10px;
+          text-align: center;
+          max-width: 250px; /* Imposta la larghezza massima desiderata */
+          white-space: nowrap; /* Evita il ritorno a capo del testo */
+          overflow: hidden;
+          text-overflow: ellipsis; /* Aggiunge i puntini di sospensione se il contenuto è troppo lungo */
+      }
+
+      .s006 {
+          background-color: #DBDBDB;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          margin: 20px auto;
+      }
+
+      /*h1 {
+          color: #ff69b4;
+      }*/
+
+      h1 {
+          color: transparent;
+          background-image: linear-gradient(to right, #ff69b4, #634C94); /* Sfumatura da sinistra a destra */
+          background-clip: text; 
+          -webkit-background-clip: text; 
+          font-size: 36px;
+          font-weight: bold;
+          text-align: center;
+      }
+
+      #searched {
+          color: #634C94;
+          font-weight: bold;
+      }
+
+      #results_number{
+          color: #634C94;
+          font-weight: bold;
+      }
+
+      button {
+          display: inline-block;
+          padding: 10px 20px;
+          background-color: #ff69b4; 
+          color: white;
+          border: none;
+          border-radius: 25px; 
+          font-size: 16px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #634C94; 
+      }
+
+      .loader-container {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url("../www/home/images/Searchs_006.png");
+          background-size: cover;
+          background-position: center center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      section {
+          width: 100%;
+          display: block;
+          margin-bottom: 10px;
+      }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+      background: #E8A5FF;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #D065FF;
+      border-radius: 20px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B156D9;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="content-container">
+        <div class="s006">
+            <h1>Identikit</h1>
+                  <p><span id="searched"></span></p>
+                  <p><span id="results_number"></span></p>
+                  <table id="resultTable">
+                <thead>
+                    <tr>
+                        <th>Attributo</th>
+                        <th>Valore</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        <tr>
+                            <td>name</td>
+                            <td>emanuele</td>
+                        </tr>
+                        <tr>
+                            <td>surname</td>
+                            <td>cesari</td>
+                        </tr>
+                        <tr>
+                            <td>birthday</td>
+                            <td>1996-03-04</td>
+                        </tr>
+                        <tr>
+                            <td>emails</td>
+                            <td>tranzollo96@live.it</td>
+                        </tr>
+
+                </tbody>
+	
+            </table>
+        </div>
+<a href="https://youtu.be/dQw4w9WgXcQ" target="_blank"><button type="button">More Info</button></a>
+    </div>
+</body>
+</html>

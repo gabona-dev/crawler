@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Risultati della Ricerca</title>
+    <!-- <link rel="stylesheet" type="text/css" href= "{{url_for('static',filename='styles/style.css') }}"> -->
+    <style>
+        .uppercase-bold {
+    text-transform: uppercase; /* Trasforma il testo in maiuscolo */
+    font-weight: bold; /* Applica il grassetto */
+}
+        .button-link {
+            text-decoration: none;
+            padding: 4px 8px;
+            background-color: #c8f119;
+            color: #2c172d;
+            border-radius: 4px;
+        }
+        .button-link:hover {
+            background-color: #5d700b;
+        }
+        *{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+body{
+    font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+    background: rgba( 31, 31, 31, 1);
+}
+h2{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
+}
+
+/* Table Styles */
+
+.table-wrapper{
+    margin: 30px 70px 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.fl-table thead th {
+    color: #2a2a2a;
+    background: #ad99e4;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #2a2a2a;
+    background: #ad99e496;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .fl-table thead th:last-child{
+        border-bottom: none;
+    }
+    .fl-table thead {
+        float: left;
+    }
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+    .fl-table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}
+    </style>
+</head>
+<body>
+    {% if counterHIBPWN %}
+        <h1 style="text-align: center;color: white;">La tua PASSWORD è apparsa: {{counterHIBPWN}} volte</h1>
+    {% endif %}
+    
+    {% if risultati %}
+    <div class="table-wrapper">
+        <!-- <h1>Risultati della Ricerca</h1>
+        <p>Testo di ricerca: {{ search_query }}</p>
+        <p>Filtro applicato: {{ filter_value }}</p> -->
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    {% for key in risultati[0].keys() %}
+                        <th class="uppercase-bold">{{ key }}</th> <!-- Mantieni il campo 'Database' -->
+                    {% endfor %}
+                    <th class="uppercase-bold">Identikit</th> <!-- Aggiunto titolo colonna per il bottone -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in risultati %}
+                    <tr>
+                        {% for key, value in record.items() %}
+                            <td data-column-name="{{ key }}">{{ value if value != '' else '-' }}</td>
+                        {% endfor %}
+                        <td><button class="button-link" onclick="sendData(this)">Identikit</button></td> <!-- Bottone/link per identikit.html -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <!-- Se la variabile risultati non è definita o è vuota, mostra un messaggio di errore -->
+    <h1 style="text-align: center;" >NESSUN RISULTATO TROVATO</h1>
+    <img src="https://cdnl.iconscout.com/lottie/premium/thumb/404-error-page-3959253-3299952.gif" alt="Elementi non trovati" style="display: block; margin-left: auto; margin-right: auto;">
+    {% endif %}
+</body>
+</html>
+
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    function sendData(button) {
+        var row = button.parentNode.parentNode; // Ottieni la riga corrispondente al bottone cliccato
+        var tds = row.getElementsByTagName('td');
+        var dataToSend = {};
+
+        for (var i = 0; i < tds.length - 1; i++) { // Scorrere tutte le colonne tranne l'ultima colonna con il bottone
+            var columnName = tds[i].getAttribute('data-column-name');
+            var cellValue = tds[i].innerText.trim();
+
+            if (columnName === 'mail' || columnName === 'phone') {
+                if (cellValue !== '-' && cellValue !== '00') {
+                    dataToSend[columnName] = cellValue;
+                }
+            }
+        }
+
+        axios.post('/identikit.html', dataToSend)
+            .then(function (response) {
+                console.log('Dati inviati con successo a Flask:', response);
+                window.location.href = '/identikit.html';
+            })
+            .catch(function (error) {
+                console.error('Errore durante l\'invio dei dati:', error);
+            });
+    }
+</script>
+
+</html>

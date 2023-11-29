@@ -1,0 +1,66 @@
+<html>
+    <head>
+      <title>Home</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+      <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" href= "{{url_for('static',filename='styles/style.css') }}">
+      <style>
+          .suggestion-wrap {
+            text-align: center;
+          }
+
+          .suggestion-wrap button {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #fff;
+            user-select: none;
+          }
+
+          .suggestion-wrap button:hover {
+            background-color: #CCCCCC;
+          }
+
+          /* Stile quando un pulsante è selezionato */
+          .suggestion-wrap button.active {
+            background-color: #EF88BE;
+            border-color: white;
+          }
+      </style>
+    </head>
+    <body>
+      <div class="s006">
+        <form id="searchForm" action="/processa_richiesta" method="POST">
+          <fieldset>
+            <legend>Who are you looking for?</legend>
+            
+            <div class="inner-form">
+              <div class="input-field">
+                <button class="btn-search" type="submit">
+                  <!-- icona lente di ingrandimento -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                  </svg>
+                </button>
+                <input id="search" type="text" name="search_query" placeholder="write here..." value="" />
+              </div>
+            </div>
+            
+            <div class="suggestion-wrap">
+              <button name="filter" value="All">All</button>
+              <button name="filter" value="E-Mail">E-Mail</button>
+              <button name="filter" value="Phone Number">Phone Number</button>
+              <button name="filter" value="Password">Password</button>
+              <button name="filter" value="First Name">First Name</button>
+              <button name="filter" value="Last Name">Last Name</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </body>
+</html>
