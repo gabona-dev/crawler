@@ -43,4 +43,4 @@ Before you begin, ensure you have the following requirements installed:
    http://127.0.0.1:5000
    ```
 
-![Image description](https://github.com/gabona-dev/crawler/blob/main/img/homepage.png)
+![Image description](https://github.com/gabona-dev/crawler/blob/main/img/homepage.png?raw=true)
