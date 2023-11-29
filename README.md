@@ -1,5 +1,5 @@
 # Breach-CrowlerV3
-
+![Image description](https://github.com/gabona-dev/crawler/blob/main/img/homepage.png?raw=true)
 ## TL;DR
 
 A simple tool to check if your accounts have been compromised in known data breaches using the local databases and the Have I Been Pwned API.
@@ -42,5 +42,3 @@ Before you begin, ensure you have the following requirements installed:
    ```bash
    http://127.0.0.1:5000
    ```
-
-![Image description](https://github.com/gabona-dev/crawler/blob/main/img/homepage.png?raw=true)
